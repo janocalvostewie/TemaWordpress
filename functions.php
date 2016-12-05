@@ -13,8 +13,12 @@ if ( function_exists( 'register_nav_menus' ) ) {
     );
 
 }
+function register_my_menu() {
+  register_nav_menu('header-menu',__( 'Header Menu' ));
+}
+add_action( 'init', 'register_my_menu' );
 
-//  Main Sidebar
+//  Barra Principal
 
      if(function_exists('register_sidebar'))
 
@@ -28,7 +32,8 @@ if ( function_exists( 'register_nav_menus' ) ) {
 
 
 	
-//Habilitar thumbnails
+/*Habilitar thumbnails*/
+
 add_theme_support('post-thumbnails');
 set_post_thumbnail_size(150, 150, true);
 
@@ -40,7 +45,21 @@ function enable_threaded_comments(){
 }
 add_action('get_header', 'enable_threaded_comments');
 	 
+	 /*PARA PODER PONER WIDGETS*/
 	 
-	 
-	 
+function arphabet_widgets_init() {
+
+	register_sidebar( array(
+		'name'          => 'Home right sidebar',
+		'id'            => 'home_right_1',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+
+}
+add_action( 'widgets_init', 'arphabet_widgets_init' );
+
+
 ?>

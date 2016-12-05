@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
- <meta charset= <?php bloginfo( 'charset' ); ?>">
-
+ <meta charset= "<?php bloginfo( 'charset' ); ?>">
+<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/banner.jpg" style="background-repeat: repeat-x;" />
   <title><?php wp_title(); ?></title>
+  
   <!-- Definir viewport para dispositivos web móviles -->
  <meta name="viewport" content="width=device-width, minimum-scale=1">
 
@@ -11,7 +12,10 @@
   <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
   <link rel="stylesheet" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-  <?php wp_head(); ?>
+  <div id="cabecera">
+    <?php wp_nav_menu( array( get_stylesheet_directory => 'header-menu' ) ); ?>
+    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/godfather.jpg" height="" width=""/><?php wp_head(); ?></div>
+  
  
 </head>
 <body>
